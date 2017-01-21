@@ -1,8 +1,8 @@
-
-
 #ifndef NeuWorldGeometry_hh
 #define NeuWorldGeometry_hh
 
+
+/*
 #include "globals.hh"
 #include "G4VUserDetectorConstruction.hh"
 #include "G4VPhysicalVolume.hh"
@@ -10,43 +10,24 @@
 
 #include "NeuDetector.hh"
 #include "NeuEarthFields.hh"
-#include "NeuGeometryMessenger.hh"
+#include "NeuGeometryMessenger.hh" 
+*/
 
-namespace NeuFlux
+class G4UserDetectorConstruction;
+
+namespace ar40
 {
 
-	/*!
-	  \class NeuWorldGeometry
-	 
-	  \ingroup NeuFlux
-	 
-	  \brief Code for defining the world geometry for the neutron flux at depth.
-	 
-	  \note Defaults to a predefined values
-	 
-	  \author Kevin Wierman
-	 
-	  \version 1.0 
-	 
-	  \date  Tue Nov 20 12::33:51 2012 $
-	 
-	  \contact kwierman@email.unc.edu
-	   
-	 */
 
-	class NeuWorldGeometry : public G4VUserDetectorConstruction
+	class Ar40Geometry : public G4VUserDetectorConstruction
 	{
 	public:
-	   NeuWorldGeometry();
-	   ~NeuWorldGeometry();
+	   Ar40Geometry();
+	   ~Ar40Geometry();
 
 	 public:
 	   G4VPhysicalVolume * Construct();
-	   /*
-	   G4int FindVertexVolumeIndex(const G4LogicalVolume * vertexLogicalVolume);
-	   G4bool StoreEnteringParticleInfo(G4VPhysicalVolume * postVolume);
-	   G4int FindPhysicalVolumeIndex(G4VPhysicalVolume * whichVolume);
-	   */
+
 	   void PrintGeometry();
 
 	private:

@@ -6,3 +6,4 @@ Conversion Simulation for 40Argon to Argon39
 
 * Geant4
   * version >= 9.6
+* Protium

@@ -1,8 +1,13 @@
 #include <map>
 #include <utility>
 
-#include "TROOT.h"
-#include "TRandom3.h"
+#include "G4VSensitiveDetector.hh"
+#include "G4Step.hh"
+#include "G4HCofThisEvent.hh"
+#include "G4Navigator.hh"
+
+#include "NeuDetectorHit.hh"
+
 
 #include "G4RunManager.hh"
 #include "G4VTouchable.hh"

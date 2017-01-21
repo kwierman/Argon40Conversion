@@ -40,21 +40,6 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::Construct()
 	return ConstructWorld();
 }
 
-/*
-G4int FindVertexVolumeIndex(const G4LogicalVolume * vertexLogicalVolume)
-{
-	return 0;
-}
-G4bool NeuFlux::NeuWorldGeometry::StoreEnteringParticleInfo(G4VPhysicalVolume * postVolume)
-{
-	return false;
-}
-G4int NeuFlux::NeuWorldGeometry::FindPhysicalVolumeIndex(G4VPhysicalVolume * whichVolume)
-{
-	return 0;
-}
-*/
-
 G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructWorld()
 {
 	G4NistManager* man = G4NistManager::Instance();
@@ -143,26 +128,3 @@ G4VPhysicalVolume* NeuFlux::NeuWorldGeometry::ConstructDetector()
 	}
 	return fPhysiDetector;
 }
-
-void NeuFlux::NeuWorldGeometry::PrintGeometry()
-{
-	G4cout<<"World Geometry: "
-		 <<fWorldX<<" , "		
-		 <<fWorldY<<" , "			
-		 <<fWorldZ<<std::endl;			
-
-	G4cout<<"Rock Geometry: "
-		 <<fRockX<<" , "			
-		 <<fRockY<<" , "			
-		 <<fRockZ<<std::endl;		
-
-	G4cout<<"Concrete Geometry: "
-		 <<fConcreteX<<" , "		
-		 <<fConcreteY<<" , "		
-		 <<fConcreteZ<<std::endl;	
-	G4cout<<"Detector Geometry: "
-		 <<fDetectorX<<" , "		
-		 <<fDetectorY<<" , "		
-		 <<fDetectorZ<<std::endl;		
-}
-

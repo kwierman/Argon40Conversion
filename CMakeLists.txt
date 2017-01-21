@@ -4,13 +4,8 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(Argon40Conversion)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 #----------------------------------------------------------------------------
-# Find Geant4 package, activating all available UI and Vis drivers by default
-option(WITH_GEANT4_UIVIS "Build NuetronFlux with Geant4 UI and Vis drivers" ON)
-if(WITH_GEANT4_UIVIS)
-  find_package(Geant4 REQUIRED ui_all vis_all)
-else()
-  find_package(Geant4 REQUIRED)
-endif()
+find_package(Protium REQUIRED)
+find_package(Geant4 REQUIRED)
 #----------------------------------------------------------------------------
 include(${Geant4_USE_FILE})
 include_directories(${PROJECT_SOURCE_DIR}/include)

@@ -1,39 +1,12 @@
-/*! \file NeuFlux.cc
-    \brief The Main Executable for the NeuFlux
-    \author Kevin Wierman
 
-    This is a copied example of the standard Geant4 main executable.
-    This is to be used for main simulation execution only.
-    \warning For testing and debugging purposes, other executables should be used.
-
-    \fn int main(int argc, char **argv)
-    \brief The main execution point for the program.
-    \param argv The name of a valid macro file, or nothing
-    \param argc The usual c++ shenanigans
-
-*/
 
 #include "G4RunManager.hh"
 #include "G4UImanager.hh"
 #include "G4UIterminal.hh"
 #include "G4UItcsh.hh"
 
-//#include "QGSP_BIC_HP.hh"
-//#include "NeuMesonProductionCut.hh"
-//#include "QGSP_BERT_HP.hh"
-//#include "QGSP_BERT_EMV.hh"
-
-//#ifdef G4UI_USE_XM
-//#include "G4UIXm.hh"
-//#endif
 
 #include "Ar40.hh"
-
-#ifdef G4VIS_USE
-#include "Ar40VisManager.hh"
-#endif
-
-
 
 int main(int argc, char **argv)
 {
@@ -54,12 +27,6 @@ int main(int argc, char **argv)
    //runManager->SetUserInitialization( new QGSP_BERT_HP);
    //runManager->SetUserInitialization( new QGSP_BERT_EMV);
 
-#ifdef G4VIS_USE
-   G4cout<<"  Setting up Visualization Manager"<<std::endl;
-   G4VisManager *visManager = new NeuFlux::NeuVisManager;
-   visManager->SetVerboseLevel(0);
-   visManager->Initialize();
-#endif
 
    G4cout<<"  Setting up User Action Classes"<<std::endl;
    NeuFlux::NeuRunAction* runAction = new NeuFlux::NeuRunAction();
