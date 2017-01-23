@@ -1,37 +1,24 @@
-
-
 #include "G4RunManager.hh"
 #include "G4UImanager.hh"
 #include "G4UIterminal.hh"
 #include "G4UItcsh.hh"
 
-
 #include "Ar40.hh"
 
 int main(int argc, char **argv)
 {
-    //Setup the Random number singleton
-   NeuFlux::NeuRandom::GetInstance();
-
-
-   G4cout<<"  Setting up Run Manager"<<std::endl;
    
    G4RunManager* runManager = new G4RunManager;
-   
-   NeuFlux::NeuWorldGeometry* geometry = new NeuFlux::NeuWorldGeometry;
 
-   runManager->SetUserInitialization(geometry);
-   
-   //runManager->SetUserInitialization( new QGSP_BIC_HP);
-   runManager->SetUserInitialization( new NeuFlux::NeuMesonProductionCut(100*CLHEP::MeV) );
-   //runManager->SetUserInitialization( new QGSP_BERT_HP);
-   //runManager->SetUserInitialization( new QGSP_BERT_EMV);
+   ar40::Ar40Geometry geo;
+
+   runManager->SetUserInitialization(&geo);
 
 
-   G4cout<<"  Setting up User Action Classes"<<std::endl;
+
+
    NeuFlux::NeuRunAction* runAction = new NeuFlux::NeuRunAction();
    runManager->SetUserAction(runAction);
-   G4cout<<"    done setting run action"<<std::endl;
    NeuFlux::NeuEventAction* eventAction =
        new NeuFlux::NeuEventAction();
    runManager->SetUserAction(eventAction);
@@ -66,11 +53,5 @@ int main(int argc, char **argv)
       G4String fileName = argv[1];
       UI->ApplyCommand(command + fileName);
    }
-
-   delete runManager;
-#ifdef G4VIS_USE
-   delete visManager;
-#endif
-
    return 0;
 }
